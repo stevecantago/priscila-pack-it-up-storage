@@ -1,12 +1,30 @@
 import { MessageSquareQuote } from "lucide-react";
 
 const cards = [
-  "Local review highlights",
-  "Move-in experience notes",
-  "Facility feedback",
-  "Customer service comments",
-  "Storage size feedback",
-  "Online rental feedback",
+  {
+    title: "Local review highlights",
+    avatar: "https://i.pravatar.cc/96?img=12",
+  },
+  {
+    title: "Move-in experience notes",
+    avatar: "https://i.pravatar.cc/96?img=47",
+  },
+  {
+    title: "Facility feedback",
+    avatar: "https://i.pravatar.cc/96?img=33",
+  },
+  {
+    title: "Customer service comments",
+    avatar: "https://i.pravatar.cc/96?img=56",
+  },
+  {
+    title: "Storage size feedback",
+    avatar: "https://i.pravatar.cc/96?img=8",
+  },
+  {
+    title: "Online rental feedback",
+    avatar: "https://i.pravatar.cc/96?img=24",
+  },
 ];
 
 export function TestimonialsPlaceholder() {
@@ -25,19 +43,26 @@ export function TestimonialsPlaceholder() {
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => (
-            <article className="rounded-xl bg-white p-6 shadow-sm" key={card}>
+            <article className="rounded-xl bg-white p-6 shadow-sm" key={card.title}>
               <MessageSquareQuote
                 className="h-8 w-8 text-brand-500"
                 aria-hidden="true"
               />
-              <h3 className="mt-5 text-lg font-black text-slate-950">{card}</h3>
+              <h3 className="mt-5 text-lg font-black text-slate-950">
+                {card.title}
+              </h3>
               <p className="mt-3 min-h-24 text-sm font-medium leading-7 text-slate-600">
                 Future verified testimonial content should include the review
                 source, customer-approved excerpt, and role or location only when
                 permitted.
               </p>
               <div className="mt-6 flex items-center gap-3">
-                <span className="h-10 w-10 rounded-full bg-slate-200" />
+                <img
+                  src={card.avatar}
+                  alt=""
+                  className="h-10 w-10 rounded-full bg-slate-200 object-cover"
+                  loading="lazy"
+                />
                 <div>
                   <p className="text-sm font-bold text-slate-950">
                     Review placeholder

@@ -14,7 +14,7 @@ export function StorableRentalApp() {
     () => ({
       envUrl:
         process.env.NEXT_PUBLIC_STORABLE_ENV_URL ||
-        "/rental-app/rental-app.js",
+        "https://webapps.storable.io",
       providerId: process.env.NEXT_PUBLIC_STORABLE_PROVIDER_ID,
       organizationId: process.env.NEXT_PUBLIC_STORABLE_ORGANIZATION_ID,
       facilityId: process.env.NEXT_PUBLIC_STORABLE_FACILITY_ID,

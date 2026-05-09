@@ -75,7 +75,7 @@ export function AvailableUnitsPreview() {
                     eventName={siteConfig.events.clickViewUnits}
                     eventParams={{ location: "unit_preview_row", unit: unit.size }}
                   >
-                    Move In
+                    RENT NOW
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </TrackedAnchor>
                 </Button>
