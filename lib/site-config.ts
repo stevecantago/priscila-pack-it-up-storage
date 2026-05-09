@@ -1,0 +1,154 @@
+export const siteConfig = {
+  name: "Pack-It-Up Self Storage",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://pack-it-up-self-storage.example",
+  description:
+    "Secure, convenient self storage with online rentals available 24/7.",
+  phone: "(555) 123-4567",
+  phoneHref: "tel:+15551234567",
+  address: {
+    street: "115 Bethlehem Rd",
+    city: "Kings Mountain",
+    region: "NC",
+    postalCode: "28086",
+    country: "US",
+  },
+  directionsUrl:
+    "https://www.google.com/maps/search/?api=1&query=115%20Bethlehem%20Rd%2C%20Kings%20Mountain%2C%20NC%2028086",
+  hours: "Mon - Sat: 8:00 AM - 6:00 PM; Sun: By appointment",
+  accessHours: "Daily access hours to be confirmed",
+  navItems: [
+    { label: "Size Guide", href: "/storage-unit-sizes" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Contact", href: "/contact" },
+  ],
+  images: {
+    hero: "/images/placeholders/hero-storage-facility.webp",
+    corridor: "/images/placeholders/storage-corridor.webp",
+    driveUp: "/images/placeholders/drive-up-unit.webp",
+    securityGate: "/images/placeholders/security-gate.webp",
+    boxes: "/images/placeholders/packing-boxes.webp",
+    mobileRental: "/images/placeholders/mobile-rental-flow.webp",
+    map: "/images/placeholders/map-placeholder.webp",
+  },
+  amenities: [
+    "Online rentals",
+    "Secure facility access",
+    "Drive-up storage",
+    "Flexible storage sizes",
+    "Local support",
+    "Move-in ready units",
+  ],
+  localSeo: {
+    headline: "Self storage for moving, overflow, and business needs",
+    whyChoose:
+      "Pack-It-Up Self Storage is built for customers who want a clear rental path, practical storage options, and helpful local support without waiting for office hours.",
+    facility:
+      "Use the online rental page to view current unit options and complete the Storable rental workflow. Final access details, lease steps, and payments are handled securely by Storable.",
+    directions:
+      "Use the directions link for the current facility map placeholder. Final map details should be confirmed before launch.",
+  },
+  previewUnits: [
+    {
+      title: "5x5 Storage Unit",
+      size: "5x5",
+      image: "/images/placeholders/storage-corridor.webp",
+      description: "Boxes, seasonal items, and compact personal storage.",
+      tags: ["Small items", "Personal storage", "Online rental"],
+    },
+    {
+      title: "5x10 Storage Unit",
+      size: "5x10",
+      image: "/images/placeholders/drive-up-unit.webp",
+      description: "Studio apartment contents, small furniture, or inventory.",
+      tags: ["Furniture", "Business overflow", "Popular size"],
+    },
+    {
+      title: "10x10 Storage Unit",
+      size: "10x10",
+      image: "/images/placeholders/packing-boxes.webp",
+      description: "One-bedroom apartment contents or larger furniture pieces.",
+      tags: ["Household storage", "Moving", "Check availability"],
+    },
+    {
+      title: "10x15 Storage Unit",
+      size: "10x15",
+      image: "/images/placeholders/security-gate.webp",
+      description: "Larger apartment storage, appliances, and extra overflow.",
+      tags: ["Large items", "Appliances", "Online rental"],
+    },
+  ],
+  socialLinks: [
+    { label: "Facebook", href: "#" },
+    { label: "X", href: "#" },
+    { label: "Instagram", href: "#" },
+  ],
+  events: {
+    viewHomepage: "view_homepage",
+    clickViewUnits: "click_view_units",
+    viewRentalAppSection: "view_rental_app_section",
+    clickCallNow: "click_call_now",
+    submitContactForm: "submit_contact_form",
+    clickDirections: "click_directions",
+  },
+} as const;
+
+export const unitSizes = [
+  {
+    size: "5x5",
+    title: "5x5 Storage Unit",
+    description:
+      "Best for boxes, seasonal items, small furniture, and personal storage.",
+  },
+  {
+    size: "5x10",
+    title: "5x10 Storage Unit",
+    description:
+      "Good for a studio apartment, small bedroom furniture, and business inventory.",
+  },
+  {
+    size: "10x10",
+    title: "10x10 Storage Unit",
+    description:
+      "Fits the contents of a one-bedroom apartment or several large furniture pieces.",
+  },
+  {
+    size: "10x15",
+    title: "10x15 Storage Unit",
+    description:
+      "Useful for larger apartment storage, appliances, and business overflow.",
+  },
+  {
+    size: "10x20",
+    title: "10x20 Storage Unit",
+    description:
+      "Commonly used for household moves, large furniture sets, or vehicle storage if allowed.",
+  },
+] as const;
+
+export const faqs = [
+  {
+    question: "Can I rent a storage unit online?",
+    answer:
+      "Yes. Pack-It-Up Self Storage supports online rentals through the Storable rental app, so you can choose a unit and start your move-in process at any time.",
+  },
+  {
+    question: "What size storage unit do I need?",
+    answer:
+      "Smaller 5x5 and 5x10 units work well for boxes and small furniture, while 10x10, 10x15, and 10x20 units are better for apartment contents, larger moves, or business overflow.",
+  },
+  {
+    question: "What happens after I rent online?",
+    answer:
+      "After completing the Storable rental flow, you should receive confirmation and any available access or move-in details for your selected facility.",
+  },
+  {
+    question: "Can I call for help before renting?",
+    answer:
+      "Yes. If you need help choosing a size or completing the rental process, use the Call Now button or contact form.",
+  },
+  {
+    question: "Are vehicle storage options available?",
+    answer:
+      "Vehicle storage availability depends on the facility and unit type. Check available units online or contact the facility for details.",
+  },
+] as const;
