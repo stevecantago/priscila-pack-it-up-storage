@@ -1,8 +1,8 @@
-import { Clock, KeyRound, MapPin, Ruler } from "lucide-react";
+import { Clock, Key, MapPin, Ruler } from "@phosphor-icons/react/dist/ssr";
 
 const items = [
   { label: "Online rentals available 24/7", icon: Clock },
-  { label: "Secure facility access", icon: KeyRound },
+  { label: "Secure facility access", icon: Key },
   { label: "Flexible storage sizes", icon: Ruler },
   { label: "Local self-storage facility", icon: MapPin },
 ];

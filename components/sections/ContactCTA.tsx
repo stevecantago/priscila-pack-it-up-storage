@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
 import { siteConfig } from "@/lib/site-config";

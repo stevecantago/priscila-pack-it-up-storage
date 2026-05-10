@@ -12,23 +12,28 @@ export const siteConfig = {
     postalCode: "28086",
     country: "US",
   },
-  directionsUrl:
-    "https://www.google.com/maps/search/?api=1&query=115%20Bethlehem%20Rd%2C%20Kings%20Mountain%2C%20NC%2028086",
+  directionsUrl: "https://maps.app.goo.gl/WNqq8PP6QwVLouej6",
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=115%20Bethlehem%20Rd%2C%20Kings%20Mountain%2C%20NC%2028086&output=embed",
   hours: "Mon - Sat: 8:00 AM - 6:00 PM; Sun: By appointment",
   accessHours: "Daily access hours to be confirmed",
   navItems: [
-    { label: "Size Guide", href: "/storage-unit-sizes" },
     { label: "FAQ", href: "/#faq" },
     { label: "Contact", href: "/contact" },
   ],
   images: {
     hero: "/images/hero-storage-facility.jpg",
-    corridor: "/images/placeholders/storage-corridor.webp",
-    driveUp: "/images/placeholders/drive-up-unit.webp",
-    securityGate: "/images/placeholders/security-gate.webp",
-    boxes: "/images/placeholders/packing-boxes.webp",
+    corridor: "/images/facility-1.jpg",
+    driveUp: "/images/facility-gallery-1.jpg",
+    securityGate: "/images/facility-gallery-2.jpg",
+    boxes: "/images/facility-gallery-3.jpg",
     mobileRental: "/images/placeholders/mobile-rental-flow.webp",
     map: "/images/placeholders/map-placeholder.webp",
+    facilityGallery: [
+      "/images/facility-gallery-1.jpg",
+      "/images/facility-gallery-2.jpg",
+      "/images/facility-gallery-3.jpg",
+    ],
   },
   amenities: [
     "Online rentals",
@@ -45,34 +50,34 @@ export const siteConfig = {
     facility:
       "Use the online rental page to view current unit options and complete the Storable rental workflow. Final access details, lease steps, and payments are handled securely by Storable.",
     directions:
-      "Use the directions link for the current facility map placeholder. Final map details should be confirmed before launch.",
+      "Use the directions link to open the facility location in Google Maps.",
   },
   previewUnits: [
     {
       title: "5x5 Storage Unit",
       size: "5x5",
-      image: "/images/placeholders/storage-corridor.webp",
+      image: "/images/facility-1.jpg",
       description: "Boxes, seasonal items, and compact personal storage.",
       tags: ["Small items", "Personal storage", "Online rental"],
     },
     {
       title: "5x10 Storage Unit",
       size: "5x10",
-      image: "/images/placeholders/drive-up-unit.webp",
+      image: "/images/facility-gallery-1.jpg",
       description: "Studio apartment contents, small furniture, or inventory.",
       tags: ["Furniture", "Business overflow", "Popular size"],
     },
     {
       title: "10x10 Storage Unit",
       size: "10x10",
-      image: "/images/placeholders/packing-boxes.webp",
+      image: "/images/facility-gallery-2.jpg",
       description: "One-bedroom apartment contents or larger furniture pieces.",
       tags: ["Household storage", "Moving", "Check availability"],
     },
     {
       title: "10x15 Storage Unit",
       size: "10x15",
-      image: "/images/placeholders/security-gate.webp",
+      image: "/images/facility-gallery-3.jpg",
       description: "Larger apartment storage, appliances, and extra overflow.",
       tags: ["Large items", "Appliances", "Online rental"],
     },

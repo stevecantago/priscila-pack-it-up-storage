@@ -1,14 +1,17 @@
 import Image from "next/image";
-import { Clock, MapPin, Navigation, Phone, ShieldCheck, Star } from "lucide-react";
+import {
+  Clock,
+  MapPin,
+  NavigationArrow,
+  Phone,
+  ShieldCheck,
+  Star,
+} from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
 import { siteConfig } from "@/lib/site-config";
 
-const gallery = [
-  siteConfig.images.corridor,
-  siteConfig.images.driveUp,
-  siteConfig.images.securityGate,
-];
+const gallery = siteConfig.images.facilityGallery;
 
 export function FacilityOverviewSection() {
   return (
@@ -18,8 +21,8 @@ export function FacilityOverviewSection() {
           <div className="grid gap-3">
             <div className="relative min-h-[280px] overflow-hidden rounded-xl bg-slate-200">
               <Image
-                src={siteConfig.images.corridor}
-                alt="Storage facility corridor placeholder"
+                src={gallery[0]}
+                alt="Pack-It-Up Self Storage facility with red drive-up unit doors"
                 fill
                 sizes="(min-width: 1024px) 46vw, 100vw"
                 className="object-cover"
@@ -33,7 +36,7 @@ export function FacilityOverviewSection() {
                 >
                   <Image
                     src={image}
-                    alt={`Pack-It-Up facility gallery placeholder ${index + 1}`}
+                    alt={`Pack-It-Up facility gallery view ${index + 1}`}
                     fill
                     sizes="180px"
                     className="object-cover"
@@ -46,7 +49,8 @@ export function FacilityOverviewSection() {
             <div className="flex flex-wrap items-center gap-2 text-sm font-bold text-brand-500">
               {Array.from({ length: 5 }).map((_, index) => (
                 <Star
-                  className="h-4 w-4 fill-current"
+                  className="h-4 w-4 fill-blue-600 text-blue-600"
+                  weight="fill"
                   aria-hidden="true"
                   key={index}
                 />
@@ -102,7 +106,7 @@ export function FacilityOverviewSection() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Navigation className="h-4 w-4" aria-hidden="true" />
+                  <NavigationArrow className="h-4 w-4" aria-hidden="true" />
                   View Map Location
                 </TrackedAnchor>
               </Button>
@@ -112,11 +116,11 @@ export function FacilityOverviewSection() {
                 className="border-slate-200 bg-transparent text-slate-900 hover:bg-slate-50"
               >
                 <TrackedAnchor
-                  href="/storage-unit-sizes"
+                  href="/#unit-sizes"
                   eventName={siteConfig.events.clickViewUnits}
                   eventParams={{ location: "facility_overview_size_guide" }}
                 >
-                  Interactive Size Guide
+                  View Unit Sizes
                 </TrackedAnchor>
               </Button>
             </div>

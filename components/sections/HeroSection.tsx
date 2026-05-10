@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Phone, Star } from "lucide-react";
+import { ArrowRight, Phone, Star } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
 import { siteConfig } from "@/lib/site-config";
@@ -19,12 +19,12 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-950/70 to-brand-950/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-transparent" />
       <div className="section-shell relative flex min-h-[620px] items-center py-16">
-        <div className="max-w-3xl">
+        <div className="motion-page-load max-w-3xl">
           <h1 className="text-balance text-4xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
             Secure, <span className="text-brand-100">Affordable Storage</span>{" "}
             in Your Area
           </h1>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="motion-page-load motion-delay-1 mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="bg-brand-500 hover:bg-brand-600">
               <TrackedAnchor
                 href="/#unit-sizes"
@@ -50,7 +50,7 @@ export function HeroSection() {
               </TrackedAnchor>
             </Button>
           </div>
-          <p className="mt-8 max-w-2xl text-base font-medium leading-7 text-brand-50">
+          <p className="motion-page-load motion-delay-2 mt-8 max-w-2xl text-base font-medium leading-7 text-brand-50">
             Clean units, secure access placeholders, and online rentals through
             Storable. Choose your unit and complete the rental process without
             waiting for office hours.
@@ -58,7 +58,8 @@ export function HeroSection() {
           <div className="mt-5 flex flex-wrap items-center gap-2 text-sm font-bold text-brand-100">
             {Array.from({ length: 5 }).map((_, index) => (
               <Star
-                className="h-4 w-4 fill-current"
+                className="h-4 w-4 fill-blue-500 text-blue-500"
+                weight="fill"
                 aria-hidden="true"
                 key={index}
               />

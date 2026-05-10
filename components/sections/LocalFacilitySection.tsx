@@ -1,7 +1,12 @@
 import Image from "next/image";
-import { ArrowRight, MapPin, Navigation } from "lucide-react";
+import {
+  ArrowRight,
+  MapPin,
+  NavigationArrow,
+} from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
+import { GoogleMapCard } from "@/components/sections/GoogleMapCard";
 import { siteConfig } from "@/lib/site-config";
 
 export function LocalFacilitySection() {
@@ -21,15 +26,7 @@ export function LocalFacilitySection() {
                 {siteConfig.localSeo.whyChoose}
               </p>
             </div>
-            <div className="relative min-h-[260px] overflow-hidden rounded-xl bg-white">
-              <Image
-                src={siteConfig.images.map}
-                alt="Map placeholder for Pack-It-Up Self Storage"
-                fill
-                sizes="(min-width: 1024px) 34vw, 100vw"
-                className="object-cover"
-              />
-            </div>
+            <GoogleMapCard />
             <div className="relative min-h-[260px] overflow-hidden rounded-xl bg-slate-200">
               <Image
                 src={siteConfig.images.driveUp}
@@ -54,7 +51,7 @@ export function LocalFacilitySection() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Navigation className="h-4 w-4" aria-hidden="true" />
+                  <NavigationArrow className="h-4 w-4" aria-hidden="true" />
                   Get Directions
                 </TrackedAnchor>
               </Button>

@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { Camera, DoorOpen, ShieldCheck, Truck } from "lucide-react";
+import {
+  Camera,
+  DoorOpen,
+  ShieldCheck,
+  Truck,
+} from "@phosphor-icons/react/dist/ssr";
 import { siteConfig } from "@/lib/site-config";
 
 const features = [

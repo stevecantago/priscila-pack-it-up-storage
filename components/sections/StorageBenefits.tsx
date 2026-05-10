@@ -1,11 +1,11 @@
 import {
+  Bank,
   Camera,
-  Caravan,
   DoorOpen,
-  Landmark,
   Ruler,
   ShieldCheck,
-} from "lucide-react";
+  Van,
+} from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
 import { siteConfig } from "@/lib/site-config";
@@ -34,12 +34,12 @@ const benefits = [
   {
     title: "Business Storage",
     text: "Practical overflow storage for supplies, records, and local business needs.",
-    icon: Landmark,
+    icon: Bank,
   },
   {
     title: "Vehicle Storage",
     text: "Vehicle availability must be confirmed on the rental page or by phone.",
-    icon: Caravan,
+    icon: Van,
   },
 ];
 
@@ -76,7 +76,7 @@ export function StorageBenefits() {
           {benefits.map((benefit) => {
             const Icon = benefit.icon;
             return (
-              <article className="flex gap-4" key={benefit.title}>
+              <article className="motion-card motion-wiggle flex gap-4 rounded-lg p-2" key={benefit.title}>
                 <span className="flex h-11 w-11 flex-none items-center justify-center rounded-md bg-brand-50 text-brand-600">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </span>

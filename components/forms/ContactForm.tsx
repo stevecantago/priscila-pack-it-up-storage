@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { PaperPlaneTilt } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -87,7 +87,7 @@ export function ContactForm() {
         </p>
       ) : null}
       <Button className="w-full sm:w-fit" disabled={status === "submitting"}>
-        <Send className="h-4 w-4" aria-hidden="true" />
+        <PaperPlaneTilt className="h-4 w-4" aria-hidden="true" />
         {status === "submitting" ? "Sending..." : "Send Message"}
       </Button>
     </form>

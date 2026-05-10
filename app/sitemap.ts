@@ -3,7 +3,6 @@ import { absoluteUrl } from "@/lib/seo";
 
 const routes = [
   "/",
-  "/storage-unit-sizes",
   "/contact",
   "/privacy-policy",
   "/terms",

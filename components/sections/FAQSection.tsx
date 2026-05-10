@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import { faqs } from "@/lib/site-config";
 
 type Props = {
@@ -24,7 +24,7 @@ export function FAQSection({ preview = false }: Props) {
             <details className="group py-6" key={faq.question} open={index === 1}>
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-lg font-black text-brand-950">
                 <span>{faq.question}</span>
-                <ChevronRight
+                <CaretRight
                   className="h-5 w-5 flex-none transition-transform group-open:rotate-90"
                   aria-hidden="true"
                 />

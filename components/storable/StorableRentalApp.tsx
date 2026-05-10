@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { createElement, useEffect, useMemo, useRef, useState } from "react";
-import { AlertCircle } from "lucide-react";
+import { WarningCircle } from "@phosphor-icons/react";
 import { siteConfig } from "@/lib/site-config";
 import { trackEvent } from "@/lib/analytics";
 
@@ -54,7 +54,7 @@ export function StorableRentalApp() {
     return (
       <div className="rounded-lg border border-brand-100 bg-brand-50 p-6">
         <div className="flex gap-3">
-          <AlertCircle className="mt-1 h-5 w-5 flex-none text-brand-600" />
+          <WarningCircle className="mt-1 h-5 w-5 flex-none text-brand-600" />
           <div>
             <h2 className="font-bold text-slate-950">
               Storable rental app configuration needed

@@ -1,11 +1,16 @@
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Warehouse } from "lucide-react";
+import {
+  FacebookLogo,
+  InstagramLogo,
+  Warehouse,
+  XLogo,
+} from "@phosphor-icons/react/dist/ssr";
 import { siteConfig } from "@/lib/site-config";
 
 const icons = {
-  Facebook,
-  X: Twitter,
-  Instagram,
+  Facebook: FacebookLogo,
+  X: XLogo,
+  Instagram: InstagramLogo,
 };
 
 export function SiteFooter() {

@@ -1,4 +1,8 @@
-import { MapPin, Navigation, ShieldCheck } from "lucide-react";
+import {
+  MapPin,
+  NavigationArrow,
+  ShieldCheck,
+} from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
 import { siteConfig } from "@/lib/site-config";
@@ -50,7 +54,7 @@ export function KingsMountainFacilityHighlight() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Navigation className="h-4 w-4" aria-hidden="true" />
+                <NavigationArrow className="h-4 w-4" aria-hidden="true" />
                 Get Directions
               </TrackedAnchor>
             </Button>

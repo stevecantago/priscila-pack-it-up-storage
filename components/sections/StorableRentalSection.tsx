@@ -2,9 +2,9 @@ import { StorableRentalApp } from "@/components/storable/StorableRentalApp";
 
 export function StorableRentalSection() {
   return (
-    <section className="scroll-mt-28 bg-brand-50 pb-20" id="rental-app">
+    <section className="scroll-mt-28 bg-blue-600 py-20" id="rental-app">
       <div className="section-shell">
-        <div className="rounded-2xl border bg-white p-4 shadow-soft sm:p-6 lg:p-8">
+        <div className="rounded-2xl border border-blue-500/30 bg-white p-4 shadow-soft sm:p-6 lg:p-8">
           <div className="mb-6">
             <p className="mb-3 inline-flex rounded-full bg-brand-50 px-4 py-2 text-sm font-bold text-brand-600">
               Secure move-in powered by Storable

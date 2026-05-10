@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MessageSquareQuote } from "lucide-react";
+import { Quotes } from "@phosphor-icons/react/dist/ssr";
 
 const cards = [
   {
@@ -44,8 +44,11 @@ export function TestimonialsPlaceholder() {
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => (
-            <article className="rounded-xl bg-white p-6 shadow-sm" key={card.title}>
-              <MessageSquareQuote
+            <article
+              className="motion-card motion-wiggle rounded-xl bg-white p-6 shadow-sm"
+              key={card.title}
+            >
+              <Quotes
                 className="h-8 w-8 text-brand-500"
                 aria-hidden="true"
               />

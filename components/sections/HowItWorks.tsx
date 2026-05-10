@@ -1,15 +1,19 @@
-import { KeyRound, MousePointerClick, Truck } from "lucide-react";
+import {
+  Key,
+  MouseLeftClick,
+  Truck,
+} from "@phosphor-icons/react/dist/ssr";
 
 const steps = [
   {
     title: "Select Your Unit",
     text: "Browse unit sizes and start the online rental flow from the storage units page.",
-    icon: MousePointerClick,
+    icon: MouseLeftClick,
   },
   {
     title: "Complete Storable Move-In",
     text: "Storable handles payment, lease steps, tenant setup, and rental confirmation.",
-    icon: KeyRound,
+    icon: Key,
   },
   {
     title: "Move In",
@@ -36,7 +40,7 @@ export function HowItWorks() {
           {steps.map((step) => {
             const Icon = step.icon;
             return (
-              <article className="relative text-center" key={step.title}>
+              <article className="motion-card motion-wiggle relative rounded-lg p-3 text-center" key={step.title}>
                 <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-white text-brand-500 shadow-sm ring-8 ring-brand-50">
                   <Icon className="h-11 w-11" aria-hidden="true" />
                 </div>
