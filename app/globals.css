@@ -7,6 +7,8 @@
   --foreground: 218 95% 15%;
   --card: 0 0% 100%;
   --card-foreground: 218 95% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 218 95% 15%;
   --primary: 217 91% 60%;
   --primary-foreground: 0 0% 100%;
   --secondary: 218 95% 15%;
@@ -21,6 +23,19 @@
   --input: 214 32% 91%;
   --ring: 217 91% 60%;
   --radius: 0.5rem;
+  --chart-1: 217 91% 60%;
+  --chart-2: 218 95% 15%;
+  --chart-3: 216 91% 85%;
+  --chart-4: 216 47% 35%;
+  --chart-5: 214 32% 91%;
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 218 95% 15%;
+  --sidebar-primary: 217 91% 60%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 216 86% 97%;
+  --sidebar-accent-foreground: 217 83% 43%;
+  --sidebar-border: 214 32% 91%;
+  --sidebar-ring: 217 91% 60%;
 }
 
 * {
