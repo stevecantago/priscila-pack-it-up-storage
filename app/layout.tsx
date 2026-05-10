@@ -7,6 +7,12 @@ import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
 import { siteConfig } from "@/lib/site-config";
 import { createPageMetadata } from "@/lib/seo";
 import "./globals.css";
+import { Figtree, Nunito_Sans } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const nunitoSansHeading = Nunito_Sans({subsets:['latin'],variable:'--font-heading'});
+
+const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   ...createPageMetadata({
@@ -26,7 +32,7 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA4_ID;
 
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", figtree.variable, nunitoSansHeading.variable)}>
       <body className="min-h-screen antialiased">
         {gaId ? (
           <>

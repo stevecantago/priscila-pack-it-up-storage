@@ -9,18 +9,19 @@ export function HeroSection() {
     <section className="relative min-h-[620px] overflow-hidden bg-brand-950">
       <Image
         src={siteConfig.images.hero}
-        alt="Pack-It-Up Self Storage facility exterior placeholder"
+        alt="Aerial rendering of Pack-It-Up Self Storage with red storage unit doors"
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-brand-950/55" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-950/70 to-brand-950/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-transparent" />
       <div className="section-shell relative flex min-h-[620px] items-center py-16">
         <div className="max-w-3xl">
-          <h1 className="text-balance text-4xl font-black leading-tight text-slate-950 sm:text-6xl lg:text-7xl">
-            Secure, <span className="text-brand-600">Affordable Storage</span>{" "}
+          <h1 className="text-balance text-4xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
+            Secure, <span className="text-brand-100">Affordable Storage</span>{" "}
             in Your Area
           </h1>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -38,7 +39,7 @@ export function HeroSection() {
               asChild
               size="lg"
               variant="outline"
-              className="border-brand-500 text-brand-600 hover:bg-brand-50"
+              className="border-white/80 bg-white/10 text-white hover:bg-white hover:text-brand-800"
             >
               <TrackedAnchor
                 href={siteConfig.phoneHref}
@@ -49,12 +50,12 @@ export function HeroSection() {
               </TrackedAnchor>
             </Button>
           </div>
-          <p className="mt-8 max-w-2xl text-base font-medium leading-7 text-slate-800">
+          <p className="mt-8 max-w-2xl text-base font-medium leading-7 text-brand-50">
             Clean units, secure access placeholders, and online rentals through
             Storable. Choose your unit and complete the rental process without
             waiting for office hours.
           </p>
-          <div className="mt-5 flex flex-wrap items-center gap-2 text-sm font-bold text-brand-500">
+          <div className="mt-5 flex flex-wrap items-center gap-2 text-sm font-bold text-brand-100">
             {Array.from({ length: 5 }).map((_, index) => (
               <Star
                 className="h-4 w-4 fill-current"
@@ -62,7 +63,7 @@ export function HeroSection() {
                 key={index}
               />
             ))}
-            <span className="ml-1 text-slate-800">
+            <span className="ml-1 text-white">
               Review highlights coming soon.
             </span>
           </div>

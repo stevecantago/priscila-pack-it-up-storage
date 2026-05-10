@@ -22,7 +22,7 @@ export const siteConfig = {
     { label: "Contact", href: "/contact" },
   ],
   images: {
-    hero: "/images/placeholders/hero-storage-facility.webp",
+    hero: "/images/hero-storage-facility.jpg",
     corridor: "/images/placeholders/storage-corridor.webp",
     driveUp: "/images/placeholders/drive-up-unit.webp",
     securityGate: "/images/placeholders/security-gate.webp",
