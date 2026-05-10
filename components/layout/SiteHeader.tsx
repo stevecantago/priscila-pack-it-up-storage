@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { Copy, Phone, Warehouse } from "@phosphor-icons/react";
+import { Copy, Phone } from "@phosphor-icons/react";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
@@ -17,19 +18,16 @@ export function SiteHeader() {
           </span>
         </div>
       </div>
-      <div className="section-shell flex min-h-[68px] items-center justify-between py-2.5">
-        <Link className="flex items-center gap-2.5" href="/">
-          <span className="flex h-10 w-10 items-center justify-center rounded-md bg-brand-500 text-white">
-            <Warehouse className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-[15px] font-black text-slate-950">
-              Pack-It-Up
-            </span>
-            <span className="block text-[11px] font-semibold uppercase text-slate-500">
-              Self Storage
-            </span>
-          </span>
+      <div className="section-shell flex min-h-[88px] items-center justify-between py-3">
+        <Link className="flex items-center" href="/" aria-label={siteConfig.name}>
+          <Image
+            src="/images/brand/kings-mountain-self-storage-logo.png"
+            alt="Kings Mountain Self Storage"
+            width={520}
+            height={140}
+            priority
+            className="h-16 w-auto sm:h-20"
+          />
         </Link>
 
         <div className="hidden items-center gap-2.5 sm:flex">

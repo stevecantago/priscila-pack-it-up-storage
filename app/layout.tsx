@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     path: "/",
   }),
   metadataBase: new URL(siteConfig.siteUrl),
+  icons: {
+    icon: "/images/brand/kings-mountain-self-storage-favicon.png",
+    shortcut: "/images/brand/kings-mountain-self-storage-favicon.png",
+    apple: "/images/brand/kings-mountain-self-storage-favicon.png",
+  },
 };
 
 export default function RootLayout({

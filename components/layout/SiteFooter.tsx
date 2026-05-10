@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   FacebookLogo,
@@ -17,12 +18,15 @@ export function SiteFooter() {
   return (
     <footer className="bg-brand-950 pb-24 text-white md:pb-0">
       <div className="section-shell flex flex-col items-center py-14 text-center">
-        <div className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white text-brand-600">
-            <Warehouse className="h-6 w-6" aria-hidden="true" />
-          </span>
-          <span className="text-lg font-black">{siteConfig.name}</span>
-        </div>
+        <Link className="flex items-center" href="/" aria-label={siteConfig.name}>
+          <Image
+            src="/images/brand/kings-mountain-self-storage-logo.png"
+            alt="Kings Mountain Self Storage"
+            width={520}
+            height={140}
+            className="h-20 w-auto sm:h-24"
+          />
+        </Link>
         <p className="mt-5 max-w-md text-sm leading-7 text-white/75">
           Find helpful storage information, start your online rental, or contact
           the facility for support choosing the right unit.
