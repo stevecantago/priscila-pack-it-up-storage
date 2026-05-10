@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MessageSquareQuote } from "lucide-react";
 
 const cards = [
@@ -57,11 +58,12 @@ export function TestimonialsPlaceholder() {
                 permitted.
               </p>
               <div className="mt-6 flex items-center gap-3">
-                <img
+                <Image
                   src={card.avatar}
                   alt=""
+                  width={40}
+                  height={40}
                   className="h-10 w-10 rounded-full bg-slate-200 object-cover"
-                  loading="lazy"
                 />
                 <div>
                   <p className="text-sm font-bold text-slate-950">
