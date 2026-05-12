@@ -81,6 +81,10 @@ Any `NEXT_PUBLIC_*` value is visible in the browser. Confirm with Storable that 
 When adding or updating an environment, mirror the values already present in the local `.env.local`
 file unless you are intentionally changing the deployment target or provider settings.
 
+If Storable gave you an API Access Secret, store it in a server-only variable such as
+`STORABLE_API_ACCESS_SECRET` in `.env.local` and in your deployment platform. Do not place that
+secret in any `NEXT_PUBLIC_*` variable, because those values are exposed to the browser.
+
 ## Site Content and Assets
 
 Site-wide content is managed in `lib/site-config.ts`, including address, phone, hours, Google Maps links, image paths, amenities, unit previews, local SEO copy, FAQs, and analytics event names.

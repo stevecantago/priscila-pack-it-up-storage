@@ -6,9 +6,22 @@ import { WarningCircle } from "@phosphor-icons/react";
 import { siteConfig } from "@/lib/site-config";
 import { trackEvent } from "@/lib/analytics";
 
+function maskValue(value: string | undefined) {
+  if (!value) {
+    return "missing";
+  }
+
+  if (value.length <= 8) {
+    return `${value.slice(0, 2)}***`;
+  }
+
+  return `${value.slice(0, 4)}***${value.slice(-4)}`;
+}
+
 export function StorableRentalApp() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scriptError, setScriptError] = useState(false);
+  const [currentOrigin, setCurrentOrigin] = useState("unknown");
 
   const config = useMemo(
     () => ({
@@ -52,6 +65,70 @@ export function StorableRentalApp() {
     return () => observer.disconnect();
   }, [missingValues.length]);
 
+  useEffect(() => {
+    setCurrentOrigin(window.location.origin);
+  }, []);
+
+  useEffect(() => {
+    if (!isDevelopment) {
+      return;
+    }
+
+    const logRentalAppIssue = (label: string, detail: unknown) => {
+      console.info(`[StorableRentalApp] ${label}`, {
+        currentOrigin,
+        scriptSrc,
+        envUrl: config.envUrl,
+        providerId: maskValue(config.providerId),
+        organizationId: maskValue(config.organizationId),
+        facilityId: maskValue(config.facilityId),
+        accessKey: maskValue(config.accessKey),
+        detail,
+      });
+    };
+
+    const onUnhandledRejection = (event: PromiseRejectionEvent) => {
+      const reason = event.reason;
+      const message =
+        reason instanceof Error ? reason.message : String(reason || "");
+
+      if (/storable|axios|403|rental-app/i.test(message)) {
+        logRentalAppIssue("unhandledrejection", reason);
+      }
+    };
+
+    const onError = (event: ErrorEvent) => {
+      const message = event.message || "";
+      const filename = event.filename || "";
+
+      if (/storable|rental-app|axios|403/i.test(`${message} ${filename}`)) {
+        logRentalAppIssue("window.error", {
+          message,
+          filename,
+          lineno: event.lineno,
+          colno: event.colno,
+        });
+      }
+    };
+
+    window.addEventListener("unhandledrejection", onUnhandledRejection);
+    window.addEventListener("error", onError);
+
+    return () => {
+      window.removeEventListener("unhandledrejection", onUnhandledRejection);
+      window.removeEventListener("error", onError);
+    };
+  }, [
+    config.accessKey,
+    config.envUrl,
+    config.facilityId,
+    config.organizationId,
+    config.providerId,
+    currentOrigin,
+    isDevelopment,
+    scriptSrc,
+  ]);
+
   if (missingValues.length > 0) {
     return (
       <div className="rounded-lg border border-brand-100 bg-brand-50 p-6">
@@ -81,6 +158,14 @@ export function StorableRentalApp() {
       <Script
         src={scriptSrc}
         strategy="afterInteractive"
+        onLoad={() => {
+          if (isDevelopment) {
+            console.info("[StorableRentalApp] rental-app.js loaded", {
+              scriptSrc,
+              currentOrigin,
+            });
+          }
+        }}
         onError={() => setScriptError(true)}
       />
       {scriptError ? (
@@ -113,6 +198,46 @@ export function StorableRentalApp() {
         "data-source": config.source,
         "data-access-key": config.accessKey,
       })}
+      {isDevelopment ? (
+        <div className="mt-4 rounded-lg border border-dashed border-slate-300 bg-white p-4 text-xs leading-6 text-slate-700">
+          <p className="font-semibold text-slate-950">Storable env debug</p>
+          <div className="mt-2 grid gap-2 sm:grid-cols-2">
+            <p>
+              Site origin: <span className="font-medium">{currentOrigin}</span>
+            </p>
+            <p>
+              Script URL: <span className="break-all font-medium">{scriptSrc}</span>
+            </p>
+            <p>
+              Storable env URL:{" "}
+              <span className="break-all font-medium">{config.envUrl}</span>
+            </p>
+            <p>
+              Provider ID: <span className="font-medium">{maskValue(config.providerId)}</span>
+            </p>
+            <p>
+              Organization ID:{" "}
+              <span className="font-medium">{maskValue(config.organizationId)}</span>
+            </p>
+            <p>
+              Facility ID: <span className="font-medium">{maskValue(config.facilityId)}</span>
+            </p>
+            <p>
+              Access key: <span className="font-medium">{maskValue(config.accessKey)}</span>
+            </p>
+            <p>
+              Missing values:{" "}
+              <span className="font-medium">
+                {missingValues.length > 0 ? missingValues.map(([label]) => label).join(", ") : "none"}
+              </span>
+            </p>
+          </div>
+          <p className="mt-3 text-slate-600">
+            Production deployments must match the Storable allowlist for the
+            exact site origin.
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }
