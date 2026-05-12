@@ -80,7 +80,6 @@ export function StorableRentalApp() {
     <div ref={containerRef}>
       <Script
         src={scriptSrc}
-        type="module"
         strategy="afterInteractive"
         onError={() => setScriptError(true)}
       />
