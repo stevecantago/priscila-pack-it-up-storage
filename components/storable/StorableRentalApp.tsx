@@ -23,6 +23,8 @@ export function StorableRentalApp() {
     }),
     [],
   );
+  const scriptSrc = `${config.envUrl.replace(/\/$/, "")}/rental-app/rental-app.js`;
+  const isDevelopment = process.env.NODE_ENV !== "production";
 
   const missingValues = [
     ["provider ID", config.providerId],
@@ -77,16 +79,33 @@ export function StorableRentalApp() {
   return (
     <div ref={containerRef}>
       <Script
-        src={`${config.envUrl.replace(/\/$/, "")}/rental-app/rental-app.js`}
+        src={scriptSrc}
         type="module"
         strategy="afterInteractive"
         onError={() => setScriptError(true)}
       />
       {scriptError ? (
-        <div className="mb-4 rounded-lg border border-brand-100 bg-brand-50 p-4 text-sm text-brand-800">
-          The rental app script could not be loaded. Please call the facility for
-          rental help.
-        </div>
+        <>
+          <div className="mb-4 rounded-lg border border-brand-100 bg-brand-50 p-4 text-sm text-brand-800">
+            The rental app script could not be loaded. Please call the facility
+            for rental help.
+          </div>
+          {isDevelopment ? (
+            <div className="mb-4 rounded-lg border border-dashed border-brand-200 bg-white p-4 text-sm leading-6 text-slate-700">
+              <p className="font-semibold text-slate-950">
+                Debug details for local testing
+              </p>
+              <p className="mt-2">
+                Script URL: <span className="break-all">{scriptSrc}</span>
+              </p>
+              <p className="mt-2">
+                If Chrome shows a CORS error, Storable likely needs to allow the
+                current site origin for this script or the production embed
+                domain is not whitelisted.
+              </p>
+            </div>
+          ) : null}
+        </>
       ) : null}
       {createElement("rental-app", {
         "data-provider-id": config.providerId,
