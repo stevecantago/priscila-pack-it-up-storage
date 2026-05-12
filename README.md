@@ -56,7 +56,8 @@ Useful scripts:
 
 ## Configuration
 
-Copy `.env.example` to `.env.local` and fill in deployment-specific values:
+Copy `.env.example` to `.env.local` and fill in deployment-specific values. Use the local
+`.env.local` entries as the source of truth for any environment you create or refresh:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://[client-domain]
@@ -76,6 +77,9 @@ Storable environment URLs:
 - Production: `https://webapps.storable.io`
 
 Any `NEXT_PUBLIC_*` value is visible in the browser. Confirm with Storable that the access key is intended for public embed usage and whether allowed-origin controls are available.
+
+When adding or updating an environment, mirror the values already present in the local `.env.local`
+file unless you are intentionally changing the deployment target or provider settings.
 
 ## Site Content and Assets
 
