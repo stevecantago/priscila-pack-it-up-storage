@@ -15,6 +15,10 @@ const requiredEnvGroups: EnvGroup[] = [
     ],
   },
   {
+    label: "Google Reviews",
+    names: ["GOOGLE_PLACES_API_KEY", "GOOGLE_PLACE_ID"],
+  },
+  {
     label: "Contact form SMTP",
     names: ["CONTACT_TO_EMAIL", "SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS", "SMTP_FROM"],
   },

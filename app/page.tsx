@@ -6,9 +6,9 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { LocalFacilitySection } from "@/components/sections/LocalFacilitySection";
+import { GoogleReviewsSection } from "@/components/sections/GoogleReviewsSection";
 import { StorageBenefits } from "@/components/sections/StorageBenefits";
 import { StorableRentalSection } from "@/components/sections/StorableRentalSection";
-import { TestimonialsPlaceholder } from "@/components/sections/TestimonialsPlaceholder";
 import { UnitSizeGuide } from "@/components/sections/UnitSizeGuide";
 
 export default function HomePage() {
@@ -19,7 +19,7 @@ export default function HomePage() {
       <FacilityOverviewSection />
       <UnitSizeGuide />
       <StorableRentalSection />
-      <TestimonialsPlaceholder />
+      <GoogleReviewsSection />
       <LocalFacilitySection />
       <StorageBenefits />
       <HowItWorks />
