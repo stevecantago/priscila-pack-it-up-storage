@@ -56,25 +56,59 @@ Useful scripts:
 
 ## Configuration
 
-Copy `.env.example` to `.env.local` and fill in deployment-specific values. Use the local
-`.env.local` entries as the source of truth for any environment you create or refresh:
+Use `.env.example` as the template for both local development and deployment environments.
+For day-to-day work, copy it to `.env.local` and keep that file aligned with the environment you
+want to test locally.
+
+### Local Development
+
+Use the local `.env.local` file as the source of truth for local testing. It may point at a
+different Storable environment than production:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://[client-domain]
-NEXT_PUBLIC_STORABLE_ENV_URL=https://webapps.storable.io
-NEXT_PUBLIC_STORABLE_PROVIDER_ID=[CONFIRM_WITH_STORABLE]
-NEXT_PUBLIC_STORABLE_ORGANIZATION_ID=[CLIENT_ORGANIZATION_ID]
-NEXT_PUBLIC_STORABLE_FACILITY_ID=[KINGS_MOUNTAIN_FACILITY_ID]
+NEXT_PUBLIC_STORABLE_ENV_URL=https://webapps.devable.io
+NEXT_PUBLIC_STORABLE_PROVIDER_ID=[DEV_OR_PROD_PROVIDER_ID]
+NEXT_PUBLIC_STORABLE_ORGANIZATION_ID=[DEV_OR_PROD_ORGANIZATION_ID]
+NEXT_PUBLIC_STORABLE_FACILITY_ID=[DEV_OR_PROD_FACILITY_ID]
 NEXT_PUBLIC_STORABLE_SOURCE=website
-NEXT_PUBLIC_STORABLE_ACCESS_KEY=[STORABLE_ACCESS_KEY]
+NEXT_PUBLIC_STORABLE_ACCESS_KEY=[DEV_OR_PROD_STORABLE_ACCESS_KEY]
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_GA4_ID=[GA4_MEASUREMENT_ID]
+CONTACT_TO_EMAIL=[CONTACT_TO_EMAIL]
+SMTP_HOST=[SMTP_HOST]
+SMTP_PORT=[SMTP_PORT]
+SMTP_USER=[SMTP_USERNAME]
+SMTP_PASS=[SMTP_PASSWORD_OR_APP_PASSWORD]
+SMTP_FROM=[FROM_EMAIL_ADDRESS]
 ```
 
-Storable environment URLs:
+### Environment Mapping
 
-- Development: `https://webapps.devable.io`
-- Staging: `https://webapps.stageable.io`
-- Production: `https://webapps.storable.io`
+Set `NEXT_PUBLIC_STORABLE_ENV_URL` per environment:
+
+| Environment | URL |
+| --- | --- |
+| Development | `https://webapps.devable.io` |
+| Staging | `https://webapps.stageable.io` |
+| Production | `https://webapps.storable.io` |
+
+Set the remaining values in each deployment target as needed, and keep the allowlisted origin
+aligned with the live domain:
+
+- `NEXT_PUBLIC_STORABLE_ENV_URL`
+- `NEXT_PUBLIC_STORABLE_PROVIDER_ID`
+- `NEXT_PUBLIC_STORABLE_ORGANIZATION_ID`
+- `NEXT_PUBLIC_STORABLE_FACILITY_ID`
+- `NEXT_PUBLIC_STORABLE_SOURCE`
+- `NEXT_PUBLIC_STORABLE_ACCESS_KEY`
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_GA4_ID`
+- `CONTACT_TO_EMAIL`
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `SMTP_FROM`
 
 Any `NEXT_PUBLIC_*` value is visible in the browser. Confirm with Storable that the access key is intended for public embed usage and whether allowed-origin controls are available.
 
@@ -84,6 +118,12 @@ file unless you are intentionally changing the deployment target or provider set
 If Storable gave you an API Access Secret, store it in a server-only variable such as
 `STORABLE_API_ACCESS_SECRET` in `.env.local` and in your deployment platform. Do not place that
 secret in any `NEXT_PUBLIC_*` variable, because those values are exposed to the browser.
+
+### Current Production Gap
+
+The last Vercel production env pull returned empty values for the app-specific variables above,
+so production must be populated manually in Vercel before the live site can authenticate with
+Storable and send contact emails reliably.
 
 ## Site Content and Assets
 

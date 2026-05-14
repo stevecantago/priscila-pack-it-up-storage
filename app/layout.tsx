@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA";
 import { SEOJsonLd } from "@/components/seo/SEOJsonLd";
+import { getMissingRequiredEnvGroups, warnOnceForMissingRequiredEnv } from "@/lib/env";
 import { siteConfig } from "@/lib/site-config";
 import { createPageMetadata } from "@/lib/seo";
 import "./globals.css";
@@ -35,10 +36,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const gaId = process.env.NEXT_PUBLIC_GA4_ID;
+  const missingEnvGroups = getMissingRequiredEnvGroups();
+
+  warnOnceForMissingRequiredEnv();
 
   return (
     <html lang="en" className={cn("font-sans", figtree.variable, nunitoSansHeading.variable)}>
       <body className="min-h-screen antialiased">
+        {process.env.NODE_ENV !== "production" && missingEnvGroups.length > 0 ? (
+          <div className="border-b border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+            <p className="font-semibold">Missing environment variables detected</p>
+            <div className="mt-1 space-y-1">
+              {missingEnvGroups.map((group) => (
+                <p key={group.label}>
+                  <span className="font-medium">{group.label}:</span>{" "}
+                  {group.names.join(", ")}
+                </p>
+              ))}
+            </div>
+          </div>
+        ) : null}
         {gaId ? (
           <>
             <Script
