@@ -29,8 +29,9 @@ export function StorableRentalSection() {
               <Button asChild variant="outline" size="sm">
                 <TrackedAnchor
                   href={siteConfig.tenantMoveInUrl}
+                  eventName={siteConfig.events.clickMoveIn}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   <ArrowSquareOut className="h-4 w-4" aria-hidden="true" />
                   Open in new tab

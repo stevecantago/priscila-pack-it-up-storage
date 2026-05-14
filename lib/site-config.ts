@@ -95,6 +95,7 @@ export const siteConfig = {
     viewHomepage: "view_homepage",
     clickViewUnits: "click_view_units",
     viewRentalAppSection: "view_rental_app_section",
+    clickMoveIn: "click_move_in",
     clickCallNow: "click_call_now",
     submitContactForm: "submit_contact_form",
     clickDirections: "click_directions",
