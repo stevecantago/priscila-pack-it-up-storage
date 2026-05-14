@@ -14,7 +14,7 @@ export function LocalFacilitySection() {
     <section className="bg-brand-950 py-20 text-white">
       <div className="section-shell">
         <h2 className="text-center text-3xl font-black sm:text-4xl">
-          Self Storage Facility in NC Area
+          Self Storage Facility in Kings Mountain Area
         </h2>
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_0.9fr]">
           <div className="grid gap-6 sm:grid-cols-2">

@@ -58,7 +58,7 @@ export function FacilityOverviewSection() {
               <span className="text-slate-500">Review content pending</span>
             </div>
             <h2 className="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">
-              Self Storage Facility in NC Area
+              Self Storage Facility in Kings Mountain Area
             </h2>
             <div className="mt-5 grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
               <p className="flex gap-2">
@@ -99,7 +99,11 @@ export function FacilityOverviewSection() {
               ))}
             </div>
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
+              <Button
+                asChild
+                variant="outline"
+                className="border-slate-200 bg-transparent text-slate-900 hover:bg-slate-50"
+              >
                 <TrackedAnchor
                   href={siteConfig.directionsUrl}
                   eventName={siteConfig.events.clickDirections}
@@ -110,17 +114,11 @@ export function FacilityOverviewSection() {
                   View Map Location
                 </TrackedAnchor>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-slate-200 bg-transparent text-slate-900 hover:bg-slate-50"
-              >
+              <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
                 <TrackedAnchor
-                  href={siteConfig.tenantMoveInUrl}
+                  href="/#rental-app"
                   eventName={siteConfig.events.clickViewUnits}
                   eventParams={{ location: "facility_overview_size_guide" }}
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   View Unit Sizes
                 </TrackedAnchor>

@@ -1,9 +1,14 @@
-import { ArrowSquareOut } from "@phosphor-icons/react/dist/ssr";
+"use client";
+
+import { useState } from "react";
+import { ArrowClockwise, ArrowSquareOut } from "@phosphor-icons/react/dist/ssr";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
 
 export function StorableRentalSection() {
+  const [iframeKey, setIframeKey] = useState(0);
+
   return (
     <section className="scroll-mt-28 bg-blue-600 py-20" id="rental-app">
       <div className="section-shell">
@@ -26,19 +31,32 @@ export function StorableRentalSection() {
               <p className="text-sm font-semibold text-slate-700">
                 Online move-in portal
               </p>
-              <Button asChild variant="outline" size="sm">
-                <TrackedAnchor
-                  href={siteConfig.tenantMoveInUrl}
-                  eventName={siteConfig.events.clickMoveIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="gap-2"
+                  onClick={() => setIframeKey((value) => value + 1)}
                 >
-                  <ArrowSquareOut className="h-4 w-4" aria-hidden="true" />
-                  Open in new tab
-                </TrackedAnchor>
-              </Button>
+                  <ArrowClockwise className="h-4 w-4" aria-hidden="true" />
+                  Refresh
+                </Button>
+                <Button asChild variant="outline" size="sm" className="gap-2">
+                  <TrackedAnchor
+                    href={siteConfig.tenantMoveInUrl}
+                    eventName={siteConfig.events.clickMoveIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ArrowSquareOut className="h-4 w-4" aria-hidden="true" />
+                    Open in new tab
+                  </TrackedAnchor>
+                </Button>
+              </div>
             </div>
             <iframe
+              key={iframeKey}
               src={siteConfig.tenantMoveInUrl}
               title="Storedge online move-in portal"
               loading="lazy"

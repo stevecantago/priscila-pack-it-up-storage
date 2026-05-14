@@ -20,11 +20,11 @@ export function SiteFooter() {
       <div className="section-shell flex flex-col items-center py-14 text-center">
         <Link className="flex items-center" href="/" aria-label={siteConfig.name}>
           <Image
-            src="/images/brand/kings-mountain-self-storage-logo.png"
-            alt="Kings Mountain Self Storage"
+            src="/images/brand/pack-it-up-us-logo-transparent.png"
+            alt="Pack-It-Up Self Storage"
             width={520}
             height={140}
-            className="h-20 w-auto sm:h-24"
+            className="h-20 w-auto object-contain sm:h-24"
           />
         </Link>
         <p className="mt-5 max-w-md text-sm leading-7 text-white/75">

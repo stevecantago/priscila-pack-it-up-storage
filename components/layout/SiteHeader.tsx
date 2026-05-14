@@ -21,12 +21,12 @@ export function SiteHeader() {
       <div className="section-shell flex min-h-[88px] items-center justify-between py-3">
         <Link className="flex items-center" href="/" aria-label={siteConfig.name}>
           <Image
-            src="/images/brand/kings-mountain-self-storage-logo.png"
-            alt="Kings Mountain Self Storage"
+            src="/images/brand/pack-it-up-us-logo-transparent.png"
+            alt="Pack-It-Up Self Storage"
             width={520}
             height={140}
             priority
-            className="h-16 w-auto sm:h-20"
+            className="h-16 w-auto object-contain sm:h-20"
           />
         </Link>
 

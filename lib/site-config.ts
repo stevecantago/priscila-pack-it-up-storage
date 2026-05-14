@@ -3,8 +3,8 @@ export const siteConfig = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://pack-it-up-self-storage.example",
   description:
     "Secure, convenient self storage with online rentals available 24/7.",
-  phone: "(555) 123-4567",
-  phoneHref: "tel:+15551234567",
+  phone: "(704) 349-7926",
+  phoneHref: "tel:+17043497926",
   address: {
     street: "115 Bethlehem Rd",
     city: "Kings Mountain",
