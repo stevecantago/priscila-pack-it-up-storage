@@ -58,7 +58,7 @@ export function StorageBenefits() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-brand-500 hover:bg-brand-600">
               <TrackedAnchor
-                href="/#unit-sizes"
+                href="/#rental-app"
                 eventName={siteConfig.events.clickViewUnits}
                 eventParams={{ location: "benefits" }}
               >

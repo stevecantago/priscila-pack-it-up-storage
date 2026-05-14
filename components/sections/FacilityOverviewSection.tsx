@@ -9,11 +9,32 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
+import { getGoogleReviewsData } from "@/lib/google-reviews";
 import { siteConfig } from "@/lib/site-config";
 
 const gallery = siteConfig.images.facilityGallery;
 
-export function FacilityOverviewSection() {
+function renderStars(rating: number) {
+  return Array.from({ length: 5 }).map((_, index) => {
+    const isFilled = index < Math.round(rating);
+
+    return (
+      <Star
+        className={isFilled ? "h-4 w-4 fill-amber-400 text-amber-400" : "h-4 w-4 text-amber-200"}
+        weight={isFilled ? "fill" : "regular"}
+        aria-hidden="true"
+        key={index}
+      />
+    );
+  });
+}
+
+export async function FacilityOverviewSection() {
+  const googleReviews = await getGoogleReviewsData();
+  const hasGoogleRating =
+    googleReviews.status === "ready" && googleReviews.averageRating !== null;
+  const averageRating = googleReviews.averageRating;
+
   return (
     <section className="-mt-14 scroll-mt-28 bg-brand-50 pb-12" id="facility-overview">
       <div className="section-shell relative">
@@ -47,15 +68,22 @@ export function FacilityOverviewSection() {
           </div>
           <div className="p-2 lg:p-4">
             <div className="flex flex-wrap items-center gap-2 text-sm font-bold text-brand-500">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <Star
-                  className="h-4 w-4 fill-blue-600 text-blue-600"
-                  weight="fill"
-                  aria-hidden="true"
-                  key={index}
-                />
-              ))}
-              <span className="text-slate-500">Review content pending</span>
+              {hasGoogleRating && averageRating !== null ? (
+                <>
+                  <div
+                    className="flex items-center gap-1"
+                    aria-label={`${averageRating.toFixed(1)} out of 5 stars on Google`}
+                  >
+                    {renderStars(averageRating)}
+                  </div>
+                  <span className="text-slate-500">
+                    {averageRating.toFixed(1)} on Google from{" "}
+                    {googleReviews.reviewCount ?? googleReviews.reviews.length} reviews
+                  </span>
+                </>
+              ) : (
+                <span className="text-slate-500">Google reviews are loading</span>
+              )}
             </div>
             <h2 className="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">
               Self Storage Facility in Kings Mountain Area

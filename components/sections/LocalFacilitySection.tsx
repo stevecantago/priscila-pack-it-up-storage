@@ -69,7 +69,7 @@ export function LocalFacilitySection() {
             </p>
             <Button asChild className="mt-7 bg-brand-500 hover:bg-brand-600">
               <TrackedAnchor
-                href="/#unit-sizes"
+                href="/#rental-app"
                 eventName={siteConfig.events.clickViewUnits}
                 eventParams={{ location: "local_facility" }}
               >

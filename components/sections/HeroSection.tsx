@@ -2,9 +2,30 @@ import Image from "next/image";
 import { ArrowRight, Phone, Star } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
+import { getGoogleReviewsData } from "@/lib/google-reviews";
 import { siteConfig } from "@/lib/site-config";
 
-export function HeroSection() {
+function renderStars(rating: number) {
+  return Array.from({ length: 5 }).map((_, index) => {
+    const isFilled = index < Math.round(rating);
+
+    return (
+      <Star
+        className={isFilled ? "h-4 w-4 fill-amber-400 text-amber-400" : "h-4 w-4 text-amber-200"}
+        weight={isFilled ? "fill" : "regular"}
+        aria-hidden="true"
+        key={index}
+      />
+    );
+  });
+}
+
+export async function HeroSection() {
+  const googleReviews = await getGoogleReviewsData();
+  const hasGoogleRating =
+    googleReviews.status === "ready" && googleReviews.averageRating !== null;
+  const averageRating = googleReviews.averageRating;
+
   return (
     <section className="relative min-h-[620px] overflow-hidden bg-brand-950">
       <Image
@@ -56,17 +77,21 @@ export function HeroSection() {
             waiting for office hours.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-2 text-sm font-bold text-brand-100">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <Star
-                className="h-4 w-4 fill-blue-500 text-blue-500"
-                weight="fill"
-                aria-hidden="true"
-                key={index}
-              />
-            ))}
-            <span className="ml-1 text-white">
-              Review highlights coming soon.
-            </span>
+            {hasGoogleRating && averageRating !== null ? (
+              <>
+                <div className="flex items-center gap-1" aria-label={`${averageRating.toFixed(1)} out of 5 stars on Google`}>
+                  {renderStars(averageRating)}
+                </div>
+                <span className="ml-1 text-white">
+                  {averageRating.toFixed(1)} on Google from{" "}
+                  {googleReviews.reviewCount ?? googleReviews.reviews.length} reviews
+                </span>
+              </>
+            ) : (
+              <span className="text-white/90">
+                Google reviews are loading.
+              </span>
+            )}
           </div>
         </div>
       </div>
