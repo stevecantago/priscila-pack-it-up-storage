@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/site-config";
+import { unstable_noStore as noStore } from "next/cache";
 
 type GoogleReview = {
   authorName: string;
@@ -50,6 +51,8 @@ function buildFallbackData(message: string): GoogleReviewsData {
 }
 
 export async function getGoogleReviewsData(): Promise<GoogleReviewsData> {
+  noStore();
+
   const apiKey = process.env.GOOGLE_PLACES_API_KEY?.trim();
   const placeId = process.env.GOOGLE_PLACE_ID?.trim();
 
