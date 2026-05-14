@@ -10,7 +10,8 @@ type ContactPayload = {
 };
 
 const contactRecipient =
-  process.env.CONTACT_TO_EMAIL || "steve.cantago@gmail.com";
+  process.env.CONTACT_TO_EMAIL || "packitupkm@allstateseg.com";
+const contactCc = process.env.CONTACT_CC_EMAIL || "steve.cantago@gmail.com";
 
 function getSmtpConfig() {
   const host = process.env.SMTP_HOST;
@@ -44,6 +45,10 @@ function escapeHtml(value: string) {
     .replace(/'/g, "&#39;");
 }
 
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export async function POST(request: Request) {
   const body = (await request.json()) as ContactPayload;
   const name = body.name?.trim();
@@ -52,11 +57,20 @@ export async function POST(request: Request) {
   const message = body.message?.trim();
   const preferredUnitSize = body.preferredUnitSize?.trim();
 
-  if (!name || !message || (!phone && !email)) {
+  if (!name || !phone || !email || !message) {
     return NextResponse.json(
       {
         message:
-          "Please include your name, message, and either a phone number or email address.",
+          "Please include your name, phone number, email address, and message.",
+      },
+      { status: 400 },
+    );
+  }
+
+  if (!isValidEmail(email)) {
+    return NextResponse.json(
+      {
+        message: "Please enter a valid email address.",
       },
       { status: 400 },
     );
@@ -68,6 +82,7 @@ export async function POST(request: Request) {
     if (process.env.NODE_ENV === "development") {
       console.info("Contact form submission not emailed; SMTP is not configured", {
         to: contactRecipient,
+        cc: contactCc,
         name,
         phone,
         email,
@@ -96,6 +111,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: smtpConfig.from,
       to: contactRecipient,
+      cc: contactCc,
       replyTo: email || undefined,
       subject: `New storage inquiry from ${name}`,
       text: [

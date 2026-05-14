@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PaperPlaneTilt } from "@phosphor-icons/react";
+import { CheckCircle, PaperPlaneTilt, WarningCircle } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,8 +16,8 @@ export function ContactForm() {
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus("submitting");
-    setMessage("");
+      setStatus("submitting");
+      setMessage("");
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -54,37 +54,51 @@ export function ContactForm() {
     <form className="grid gap-4" onSubmit={onSubmit}>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-slate-700">
-          Name
+          Name <span className="text-brand-600">*</span>
           <Input name="name" autoComplete="name" required />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-slate-700">
-          Phone
-          <Input name="phone" type="tel" autoComplete="tel" />
+          Phone <span className="text-brand-600">*</span>
+          <Input name="phone" type="tel" autoComplete="tel" required />
         </label>
       </div>
       <label className="grid gap-2 text-sm font-semibold text-slate-700">
-        Email
-        <Input name="email" type="email" autoComplete="email" />
+        Email <span className="text-brand-600">*</span>
+        <Input
+          name="email"
+          type="text"
+          autoComplete="email"
+          inputMode="email"
+          spellCheck={false}
+          autoCapitalize="none"
+          required
+        />
       </label>
       <label className="grid gap-2 text-sm font-semibold text-slate-700">
         Preferred unit size
         <Input name="preferredUnitSize" placeholder="Optional, such as 10x10" />
       </label>
       <label className="grid gap-2 text-sm font-semibold text-slate-700">
-        Message
+        Message <span className="text-brand-600">*</span>
         <Textarea name="message" required />
       </label>
       {message ? (
-        <p
+        <div
           className={
             status === "success"
-              ? "rounded-md bg-brand-50 p-3 text-sm font-semibold text-brand-700"
-              : "rounded-md bg-brand-50 p-3 text-sm font-semibold text-brand-800"
+              ? "flex items-start gap-3 rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm font-semibold text-emerald-900"
+              : "flex items-start gap-3 rounded-lg border border-rose-200 bg-rose-50 p-4 text-sm font-semibold text-rose-900"
           }
           role="status"
+          aria-live={status === "success" ? "polite" : "assertive"}
         >
-          {message}
-        </p>
+          {status === "success" ? (
+            <CheckCircle className="mt-0.5 h-5 w-5 flex-none" aria-hidden="true" />
+          ) : (
+            <WarningCircle className="mt-0.5 h-5 w-5 flex-none" aria-hidden="true" />
+          )}
+          <p>{message}</p>
+        </div>
       ) : null}
       <Button className="w-full sm:w-fit" disabled={status === "submitting"}>
         <PaperPlaneTilt className="h-4 w-4" aria-hidden="true" />
