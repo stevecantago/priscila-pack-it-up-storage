@@ -16,8 +16,8 @@ export function ContactForm() {
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-      setStatus("submitting");
-      setMessage("");
+    setStatus("submitting");
+    setMessage("");
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -54,16 +54,16 @@ export function ContactForm() {
     <form className="grid gap-4" onSubmit={onSubmit}>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-slate-700">
-          Name <span className="text-brand-600">*</span>
+          Name
           <Input name="name" autoComplete="name" required />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-slate-700">
-          Phone <span className="text-brand-600">*</span>
+          Phone
           <Input name="phone" type="tel" autoComplete="tel" required />
         </label>
       </div>
       <label className="grid gap-2 text-sm font-semibold text-slate-700">
-        Email <span className="text-brand-600">*</span>
+        Email
         <Input
           name="email"
           type="text"
@@ -79,7 +79,7 @@ export function ContactForm() {
         <Input name="preferredUnitSize" placeholder="Optional, such as 10x10" />
       </label>
       <label className="grid gap-2 text-sm font-semibold text-slate-700">
-        Message <span className="text-brand-600">*</span>
+        Message
         <Textarea name="message" required />
       </label>
       {message ? (
