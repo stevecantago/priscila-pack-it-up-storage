@@ -52,6 +52,20 @@ export function SiteHeader() {
               Contact Us
             </TrackedAnchor>
           </Button>
+          <Button
+            asChild
+            size="sm"
+            variant="outline"
+            className="border-brand-500 px-4 font-black text-brand-600 hover:bg-brand-50 hover:text-brand-700"
+          >
+            <a
+              href={siteConfig.tenantLoginUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tenant Log In
+            </a>
+          </Button>
         </div>
       </div>
     </header>

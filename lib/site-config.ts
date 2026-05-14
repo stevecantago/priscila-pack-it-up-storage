@@ -13,6 +13,10 @@ export const siteConfig = {
     country: "US",
   },
   directionsUrl: "https://maps.app.goo.gl/WNqq8PP6QwVLouej6",
+  tenantLoginUrl:
+    "https://rental-center.storedge.com/?companyId=27aeba00-8fbb-4ecb-81b9-b45214b3e9c5&facilityId=16a49c28-9014-40d1-b6e8-ec0b1e374d63#/login",
+  tenantMoveInUrl:
+    "https://rental-center.storedge.com/?companyId=27aeba00-8fbb-4ecb-81b9-b45214b3e9c5&facilityId=16a49c28-9014-40d1-b6e8-ec0b1e374d63#/move-in",
   mapEmbedUrl:
     "https://www.google.com/maps?q=115%20Bethlehem%20Rd%2C%20Kings%20Mountain%2C%20NC%2028086&output=embed",
   hours: "Mon - Sat: 8:00 AM - 6:00 PM; Sun: By appointment",

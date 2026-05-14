@@ -15,7 +15,7 @@ const gallery = siteConfig.images.facilityGallery;
 
 export function FacilityOverviewSection() {
   return (
-    <section className="-mt-14 bg-brand-50 pb-12">
+    <section className="-mt-14 scroll-mt-28 bg-brand-50 pb-12" id="facility-overview">
       <div className="section-shell relative">
         <div className="grid gap-7 rounded-2xl border bg-white p-4 shadow-soft lg:grid-cols-[1fr_1.1fr] lg:p-5">
           <div className="grid gap-3">
@@ -116,9 +116,11 @@ export function FacilityOverviewSection() {
                 className="border-slate-200 bg-transparent text-slate-900 hover:bg-slate-50"
               >
                 <TrackedAnchor
-                  href="/#unit-sizes"
+                  href={siteConfig.tenantMoveInUrl}
                   eventName={siteConfig.events.clickViewUnits}
                   eventParams={{ location: "facility_overview_size_guide" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   View Unit Sizes
                 </TrackedAnchor>

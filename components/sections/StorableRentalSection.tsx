@@ -1,4 +1,7 @@
-import { StorableRentalApp } from "@/components/storable/StorableRentalApp";
+import { ArrowSquareOut } from "@phosphor-icons/react/dist/ssr";
+import { TrackedAnchor } from "@/components/analytics/AnalyticsEvents";
+import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/site-config";
 
 export function StorableRentalSection() {
   return (
@@ -13,12 +16,35 @@ export function StorableRentalSection() {
               Move in online
             </h2>
             <p className="mt-2 max-w-3xl leading-7 text-slate-600">
-              Use the Storable rental app to view current availability and
-              complete the move-in workflow. Payments, lease signing, insurance,
-              tenant setup, and facility updates are handled inside Storable.
+              Use the online move-in portal to view current availability and
+              complete the rental workflow. Payments, lease signing, insurance,
+              tenant setup, and facility updates are handled inside Storedge.
             </p>
           </div>
-          <StorableRentalApp />
+          <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3">
+              <p className="text-sm font-semibold text-slate-700">
+                Online move-in portal
+              </p>
+              <Button asChild variant="outline" size="sm">
+                <TrackedAnchor
+                  href={siteConfig.tenantMoveInUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <ArrowSquareOut className="h-4 w-4" aria-hidden="true" />
+                  Open in new tab
+                </TrackedAnchor>
+              </Button>
+            </div>
+            <iframe
+              src={siteConfig.tenantMoveInUrl}
+              title="Storedge online move-in portal"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="min-h-[780px] w-full border-0 bg-white"
+            />
+          </div>
         </div>
       </div>
     </section>

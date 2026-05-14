@@ -27,7 +27,7 @@ export function HeroSection() {
           <div className="motion-page-load motion-delay-1 mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="bg-brand-500 hover:bg-brand-600">
               <TrackedAnchor
-                href="/#unit-sizes"
+                href="/#facility-overview"
                 eventName={siteConfig.events.clickViewUnits}
                 eventParams={{ location: "hero" }}
               >
