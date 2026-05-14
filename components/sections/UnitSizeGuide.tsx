@@ -23,9 +23,8 @@ export function UnitSizeGuide({ compact = false }: Props) {
             Storage options at Pack-It-Up
           </h2>
           <p className="mt-4 text-lg leading-8 text-slate-600">
-            Compare the unit sizes available for this Kings Mountain storage
-            property and see the kinds of belongings each size is typically
-            used for.
+            These are general storage examples only. Actual fit depends on how
+            much furniture, boxes, and walkthrough space you need.
           </p>
         </div>
         <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -67,10 +66,6 @@ export function UnitSizeGuide({ compact = false }: Props) {
             </table>
           </div>
         </div>
-        <p className="mt-6 max-w-3xl text-sm leading-7 text-slate-500">
-          These are general storage examples only. Actual fit depends on how
-          much furniture, boxes, and walkthrough space you need.
-        </p>
       </div>
     </section>
   );

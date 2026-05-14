@@ -64,7 +64,16 @@ export function SiteFooter() {
         </div>
         <p className="mt-8 text-xs text-white/50">
           &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
-          reserved.
+          reserved. Chat with{" "}
+          <a
+            className="font-semibold text-white hover:text-white/80"
+            href="https://wa.me/639999959876"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Steve
+          </a>
+          .
         </p>
       </div>
     </footer>
