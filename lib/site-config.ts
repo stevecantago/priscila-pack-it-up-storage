@@ -19,8 +19,8 @@ export const siteConfig = {
     "https://rental-center.storedge.com/?companyId=27aeba00-8fbb-4ecb-81b9-b45214b3e9c5&facilityId=16a49c28-9014-40d1-b6e8-ec0b1e374d63#/move-in",
   mapEmbedUrl:
     "https://www.google.com/maps?q=115%20Bethlehem%20Rd%2C%20Kings%20Mountain%2C%20NC%2028086&output=embed",
-  hours: "Mon - Sat: 8:00 AM - 6:00 PM; Sun: By appointment",
-  accessHours: "Daily access hours to be confirmed",
+  hours: "Tues - Thurs: 9AM - 1PM | Fri: 9AM - 6PM | Sat: 9AM - 2PM\nSun - Mon: Close",
+  accessHours: "Daily, between 6 AM – 10 PM",
   navItems: [
     { label: "FAQ", href: "/#faq" },
     { label: "Contact", href: "/contact" },

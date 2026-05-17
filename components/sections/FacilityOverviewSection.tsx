@@ -108,11 +108,11 @@ export async function FacilityOverviewSection() {
               </p>
               <p className="flex gap-2">
                 <Clock className="h-4 w-4 flex-none text-brand-500" />
-                <span>Office hours: {siteConfig.hours}</span>
+                <span className="whitespace-pre-line">Office hours: {siteConfig.hours}</span>
               </p>
               <p className="flex gap-2">
                 <ShieldCheck className="h-4 w-4 flex-none text-brand-500" />
-                <span>Access: {siteConfig.accessHours}</span>
+                <span>Gate Access: {siteConfig.accessHours}</span>
               </p>
             </div>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">

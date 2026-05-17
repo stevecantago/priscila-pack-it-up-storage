@@ -5,7 +5,6 @@ type Props = {
 };
 
 const fitExamples = {
-  "5x5": "Closet overflow, boxes, seasonal decor",
   "5x10": "Studio furniture, small appliances, inventory",
   "10x10": "One-bedroom furniture and household boxes",
   "10x15": "Large apartment contents and bulky furniture",
@@ -13,7 +12,9 @@ const fitExamples = {
 } as const;
 
 export function UnitSizeGuide({ compact = false }: Props) {
-  const visibleSizes = compact ? unitSizes.slice(0, 3) : unitSizes;
+  const visibleSizes = (compact ? unitSizes.slice(0, 3) : unitSizes).filter(
+    (unit) => unit.size !== "5x5",
+  );
 
   return (
     <section className="scroll-mt-28 bg-white py-16 sm:py-20" id="unit-sizes">
