@@ -21,8 +21,8 @@ export function SiteHeader() {
           </a>
         </div>
       </div>
-      <div className="section-shell flex min-h-[88px] items-center justify-between py-3">
-        <Link className="flex items-center" href="/" aria-label={siteConfig.name}>
+      <div className="section-shell flex min-h-[88px] flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <Link className="flex items-center self-center sm:self-auto" href="/" aria-label={siteConfig.name}>
           <Image
             src="/images/brand/pack-it-up-us-logo-transparent.png"
             alt="Pack-It-Up Self Storage"
@@ -32,6 +32,23 @@ export function SiteHeader() {
             className="h-16 w-auto object-contain sm:h-20"
           />
         </Link>
+
+        <div className="w-full sm:hidden">
+          <Button
+            asChild
+            size="sm"
+            variant="outline"
+            className="w-full border-brand-500 px-4 font-black text-brand-600 hover:bg-brand-50 hover:text-brand-700"
+          >
+            <a
+              href={siteConfig.tenantLoginUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tenant Log In
+            </a>
+          </Button>
+        </div>
 
         <div className="hidden items-center gap-2.5 sm:flex">
           <Button

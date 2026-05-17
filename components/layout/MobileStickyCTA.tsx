@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Phone } from "@phosphor-icons/react";
 import { siteConfig } from "@/lib/site-config";
 import { trackEvent } from "@/lib/analytics";
 
@@ -21,12 +20,13 @@ export function MobileStickyCTA() {
           Facility
         </Link>
         <a
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-brand-500 px-3 text-sm font-bold text-white"
-          href={siteConfig.phoneHref}
-          onClick={() => trackEvent(siteConfig.events.clickCallNow)}
+          className="inline-flex h-12 items-center justify-center rounded-md bg-brand-500 px-3 text-sm font-bold text-white"
+          href={siteConfig.tenantLoginUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackEvent(siteConfig.events.clickMoveIn)}
         >
-          <Phone className="h-4 w-4" aria-hidden="true" />
-          Call Now
+          Tenant Log In
         </a>
       </div>
     </div>
