@@ -33,23 +33,6 @@ export function SiteHeader() {
           />
         </Link>
 
-        <div className="w-full sm:hidden">
-          <Button
-            asChild
-            size="sm"
-            variant="outline"
-            className="w-full border-brand-500 px-4 font-black text-brand-600 hover:bg-brand-50 hover:text-brand-700"
-          >
-            <a
-              href={siteConfig.tenantLoginUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tenant Log In
-            </a>
-          </Button>
-        </div>
-
         <div className="hidden items-center gap-2.5 sm:flex">
           <Button
             asChild
